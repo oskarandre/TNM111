@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="js/nodelink.js"></script>
+
+<body onload="updateData()">
+    <div class="all">
+        <div class="container">
+            <h1>Star Wars Social Network</h1>
+        </div>
+        <div class="informationMother">
+            <div class="information">
+                <h4>On this website, you can interactively explore interactions from all Star Wars episodes.
+                    By clicking on a node, you can view detailed information.
+                    Additionally, you can select different episodes using the dropdown menu to tailor your exploration.
+                    With help of the range sliders, you also have the capability to set a threshold for the minimum
+                    number of interactions
+                    and for scene apperances,
+                    allowing for a more customized viewing experience.</h4>
+            </div>
+        </div>
+
+        <div class='containerMap'>
+            <div class="map">
+                <h1 id="selectedEpisode">Episode 1</h1>
+                <div id="hoverName">
+
+                    <h2> Character: </h2>
+                    <h3>
+                        <g class="hoverName"></g>
+                    </h3>
+                </div>
+
+                <svg width="100%" height="550">
+                    <g class="links"></g>
+                    <g class="nodes"></g>
+                </svg>
+
+            </div>
+
+            <div class="dropAndInfo">
+                <div class="dropdown">
+                    <h2>Select episode:</h2>
+                    <select name="type" onchange="updateData()">
+                        <option value="Data/starwars-episode-1-interactions-allCharacters.json" selected>Episode 1
+                        </option>
+                        <option value="Data/starwars-episode-2-interactions-allCharacters.json">Episode 2</option>
+                        <option value="Data/starwars-episode-3-interactions-allCharacters.json">Episode 3</option>
+                        <option value="Data/starwars-episode-4-interactions-allCharacters.json">Episode 4</option>
+                        <option value="Data/starwars-episode-5-interactions-allCharacters.json">Episode 5</option>
+                        <option value="Data/starwars-episode-6-interactions-allCharacters.json">Episode 6</option>
+                        <option value="Data/starwars-episode-7-interactions-allCharacters.json">Episode 7</option>
+                        <option value="Data/starwars-full-interactions-allCharacters.json">All Episodes</option>
+                    </select>
+
+                    <select name="type2" onchange="updateData()">
+                        <option value="Data/starwars-episode-1-interactions-allCharacters.json" selected>Episode 1
+                        </option>
+                        <option value="Data/starwars-episode-2-interactions-allCharacters.json">Episode 2</option>
+                        <option value="Data/starwars-episode-3-interactions-allCharacters.json">Episode 3</option>
+                        <option value="Data/starwars-episode-4-interactions-allCharacters.json">Episode 4</option>
+                        <option value="Data/starwars-episode-5-interactions-allCharacters.json">Episode 5</option>
+                        <option value="Data/starwars-episode-6-interactions-allCharacters.json">Episode 6</option>
+                        <option value="Data/starwars-episode-7-interactions-allCharacters.json">Episode 7</option>
+                        <option value="Data/starwars-full-interactions-allCharacters.json">All Episodes</option>
+                    </select>
+                </div>
+
+                <div class="rangeSliders">
+                    <h3>Set threshold for interactions</h3>
+                    <div class="slidecontainer">
+                        <input type="range" class="range" min="1" max="10" value="1" id="slider1Left">
+                        <div id="sliderVal"></div>
+
+                    </div>
+
+                    <h3>Set threshold for scene apperances</h3>
+                    <div class="slidecontainer">
+                        <input type="range" min="1" max="171" value="1" id="slider2Left">
+                        <div id="sliderVal2"></div>
+                    </div>
+                </div>
+
+
+                <div id="info">
+                    <h2> Character and interactions:</h2>
+                    <h3> Name: </h3>
+                    <g class="infoName"></g>
+                    <h3> Scene apperances: </h3>
+                    <g class="infoInteractions"></g>
+                    <h3> Interactions (Nr of scenes): </h3>
+                    <g class="infoConnected"></g>
+
+
+                </div>
+            </div>
+
+
+            <div class="map">
+                <h1 id="selectedEpisode2">Episode 1</h1>
+                <div id="hoverName">
+                    <h2> Character: </h2>
+                    <h3>
+                        <g class="hoverName2"></g>
+                    </h3>
+                </div>
+
+                <svg width="100%" height="550">
+                    <g class="links2"></g>
+                    <g class="nodes2"></g>
+                </svg>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
